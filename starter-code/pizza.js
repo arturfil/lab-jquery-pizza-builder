@@ -5,6 +5,8 @@
 
 $(document).ready(function(){
 
+  var currentTotal = 13;
+
   // remove class
   $(".sauce").removeClass("sauce-white");
   $(".crust").removeClass("crust-gluten-free");
@@ -14,14 +16,43 @@ $(document).ready(function(){
 
   $(".btn-mushrooms").click(function() {
     $('.mushroom').toggle();
+    $('.li-mush').toggle();
+
+    if($(".btn-mushrooms").hasClass('active')) {
+      currentTotal += 1;
+    } else {
+      currentTotal -= 1;
+    }
+
+    $('.price strong').html('$' + currentTotal);
+
   })
 
   $(".btn-pepperonni").click(function() {
     $('.pep').toggle();
+    $(".li-pep").toggle();
+
+    if($(".btn-pepperonni").hasClass('active')) {
+      currentTotal += 1;
+    } else {
+      currentTotal -= 1;
+    }
+
+    $('.price strong').html('$' + currentTotal);
+
   })
 
   $(".btn-green-peppers").click(function() {
     $('.green-pepper').toggle();
+    $('.li-green-pepper').toggle()
+
+    if($(".btn-green-peppers").hasClass('active')) {
+      currentTotal += 1;
+    } else {
+      currentTotal -= 1;
+    }
+
+    $('.price strong').html('$' + currentTotal);
   })
 
   $('.btn-sauce').click(function(){
